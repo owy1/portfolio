@@ -1,5 +1,5 @@
 *{
-  margin-left: 30px;
+  /*margin-top: 30px;*/
   margin-bottom: 30px;
 }
 
@@ -9,7 +9,7 @@
   height: 120px;
   padding-top: 20px;
   padding-left: 30px;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
 
 .navigation {
@@ -50,26 +50,12 @@ li {
   display: inline-block;
   text-indent: 30px;
   color: #C9C5C5;
-  margin: 30px 10px 30px -20px;
+  /*margin: 30px -10px 30px -10px;*/
+  margin: 30px, auto;
+  padding-top: 30px;
 }
 
 .featured_section {
   float: left;
   width: 50%;
-}
-
-button {
-  display: block;
-  border-radius: 5px;
-  text-decoration: none;
-  color: #e7e7e7;
-  font-size: 105%;
-  background-color: #080707;
-  height:40px;
-  width: 250px;
-}
-
-button:hover {
-  background-color: #F485EB;
-  transition-duration: 350ms;
 }

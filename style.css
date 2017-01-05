@@ -44,6 +44,7 @@ h2 {
 
 .always_three {
   position: relative;
+  margin-right: 20px;
 }
 
 li {
@@ -51,7 +52,7 @@ li {
   text-indent: 30px;
   color: #C9C5C5;
   /*margin: 30px -10px 30px -10px;*/
-  margin: 30px, auto;
+  margin: auto;
   padding-top: 30px;
 }
 

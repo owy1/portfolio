@@ -11,10 +11,12 @@ function Article (options) {
 //render projects.js objects to html
 
 articleView.handleMainNav = function () {
+
   $('.main-nav').on('click', '.navigation', function() {
     $('.nav-content').hide();
     $('#' + $(this).data('content')).show();
   });
-  $('.main-nav .naviation:first').click();
+
+  $('.main-nav .navigation:first').click();
 };
 articleView.handleMainNav();

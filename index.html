@@ -8,6 +8,14 @@
 		<link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
+		<script id="project-template" type="text/x-handlebars-template">
+			<header>
+				<h1>{{title}}</hr>
+					<div class="urline"><address><a href="{{articleUrl}}"></a></address></div>
+			</header>
+			<section class="synopsis">{{{synopsis}}}</section>
+			<section>published on {{publishedOn}}<section>
+		</script>
 	</head>
 	<body>
 	<header>

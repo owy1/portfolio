@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="styles/modules.css">
 		<script id="project-template" type="text/x-handlebars-template">
 			<header>
-				<h1>{{title}}</hr>
-					<div class="urline"><address><a href="{{articleUrl}}"></a></address></div>
+				<h3>
+					<div class="urline"><address><a href="{{articleUrl}}">{{title}}</a></address></div></h3>
+					<section>{{publishedOn}}<section>
 			</header>
-			<section class="synopsis">{{{synopsis}}}</section>
-			<section>published on {{publishedOn}}<section>
+			<section class="synopsis" style="margin-right: 30px;"">{{{synopsis}}}</section>
 		</script>
 	</head>
 	<body>
@@ -33,17 +33,17 @@
   </header>
   <main>
     <img src="/images/deck.png" width = 100% height ="450"></img>
-			<h2>projects place-holders</h2>
+			<!-- <h2>projects place-holders</h2> -->
     <ul id="projects" class="nav-content" ontouchstart="this.classList.toggle('hover');">
-      <li><img src="/images/blue.png" width = "350" height ="375"></li>
+      <!-- <li><img src="/images/blue.png" width = "350" height ="375"></li>
       <li><img src="/images/violet.png" width = "350" height ="375"></li>
-      <li><img src="/images/violetblue.png" width = "350" height ="375"></li>
+      <li><img src="/images/violetblue.png" width = "350" height ="375"></li> -->
     </ul>
 		<section id="about" class="nav-content">
 	    <header>
-	      Curriculum Vitae
+	      <h2>Curriculum Vitae</h2>
 	    </header>
-	      <section>
+
 	      <h3>Skills:</h3>
 				<p>Full stack developer, Data Analysis, R, JavaScript, Python, SQL, MatLab</p>
 				<h3>Projects:</h3>
@@ -61,7 +61,7 @@
 	  </section>
 	</main>
   <footer id="contact">
-  	https://github.com/owy1 &nbsp;&nbsp;&nbsp;
+  	<!-- https://github.com/owy1 &nbsp;&nbsp;&nbsp; -->
 		owyowy1@gmail.com &nbsp;&nbsp;&nbsp;
 		310-570-3788
   </footer>
@@ -69,6 +69,7 @@
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
 	<script src="projects.js"></script>
 	<script src="projectView.js"></script>
 </body>

@@ -21,23 +21,12 @@ a {
   color: #888;
 }
 
-/*footer {
-  clear: both;
-  background: #444;
-  height: 150px;
-}*/
-
 footer {
   height: 30px;
   color: #888;
   background: #444;
   padding: 40px 0;
   text-align: center;
-}
-
-h2 {
-  font-style: normal;
-  font-size: 150%;
 }
 
 #projects {
@@ -49,6 +38,21 @@ h2 {
   margin-right:5px;
 }
 
+#projects .nav-content {
+  margin-right: 50px;
+}
+
+h2 {
+  margin-top: 0px;
+  text-align: center;
+  font-style: normal;
+  font-size: 150%;
+}
+
+#about {
+  margin: 0px 0px 10px 20px;
+}
+
 .icon-menu {
   clear left;
   float: right;
@@ -58,10 +62,10 @@ h2 {
 }
 
 .main-nav ul {
+  /*clear: both;*/
+  padding-left: 0px;
   display: none;
-  padding: 0;
   list-style: none;
-  clear: both;
 }
 
 .main-nav:hover ul {
@@ -70,17 +74,16 @@ h2 {
 
 .main-nav ul li {
   display: inline-block;
-  text-indent: 30px;
+  text-indent: 40px;
   color: #C9C5C5;
-  margin: auto;
-  padding-top: 30px;
+  margin-left: 0px;
+  padding-top: 80px;
 }
 
 @media screen and (min-width: 600px){
   .main-nav ul {
     display:inline-flex;
     clear: both;
-
   }
   .icon-menu::before{
     display:none

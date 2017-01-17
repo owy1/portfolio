@@ -1,0 +1,28 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "this is a class7 portfolio assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owy1/portfolio.git"
+  },
+  "keywords": [
+    "express",
+    "portfolio",
+    "git"
+  ],
+  "author": "ophelia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owy1/portfolio/issues"
+  },
+  "homepage": "https://github.com/owy1/portfolio#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

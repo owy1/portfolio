@@ -1,3 +1,4 @@
+// 'use strict';
 (function(module){
 
 function Article (options) {
@@ -39,13 +40,17 @@ Article.fetchAll = function() {
   }
 }
 
-// Article.numWordsAll = () => {
-//   return Article.all.map(ele => ele.synopsis.split('').length)
-//   .reduce(function(total,ele){
-//     return total + ele;
-//   });
-// };
-// console.log("the total number of words that ophelia has written so far: ",Article.numWordsAll());
+Article.numWordsAll = () => {
+  return Article.all.map(ele => ele.synopsis.split('').length)
+  .reduce(function(total,ele){
+    return total + ele;
+  });
+};
+
+
+// console.log(`the total number of words that ophelia has written so far: ${Article.numWordsAll()}`);
+
+
 
 module.Article = Article;
 

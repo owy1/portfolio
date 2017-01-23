@@ -1,15 +1,7 @@
 
 (function(module){
 
-  var articleView = {};
-
-// Article.numWordsAll = () => {
-//   return Article.all.map(ele => ele.synopsis.split('').length)
-//   .reduce(function(total,ele){
-//     return total + ele;
-//   });
-// };
-// console.log("the total number of words that ophelia has written so far: ",Article.numWordsAll());
+const articleView = {};
 
 //render projects.js objects to html
   articleView.handleMainNav = function () {
@@ -20,12 +12,12 @@
     $('.main-nav .navigation:first').click();
   };
 
-  $(document).ready(function(){
+  articleView.initIndexPage = function(){
     Article.all.forEach(function(a){
       $('#projects').append(a.toHtml());
     });
     articleView.handleMainNav();
-  });
+  };
 
   module.articleView = articleView;
 

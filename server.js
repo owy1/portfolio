@@ -1,15 +1,56 @@
-'use strict';
+// 'use strict';
 
+const pg = require('pg');
 const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 5000;
 
-// DONE: Include all of the static resources as an argument to app.use()
+const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 7000;
+const app = express();
+const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
-app.get('./index.html', function(request, response) {
+app.get('/', function(request, response) {
   // DONE: Using the response object, send the index.html file back to the user
   response.sendFile('index.html',{root: './public'});
+});
+
+app.get('/mds/all', function(request,response){
+  // console.log('bob');
+  let client = new pg.Client(conString); // Pass the conString to pg, which creates a new client object
+    client.connect(function(err) { // Use the client object to connect to our DB.
+      if (err) console.error(err);
+      client.query('SELECT * FROM mds', function(err, result) { // Make a request to the DB
+        if (err) console.error(err);
+        response.send(result);
+        client.end();
+      });
+    })
+});
+
+app.post('/mds/insert', function(request, response) {
+  console.log(request.body);//A new body object containing the parsed data is populated on the request object after the middleware (i.e. request.body). This object will contain key-value pairs, where the value can be a string or array
+  let client = new pg.Client(conString)
+
+  client.connect(function(err) {
+    if (err) console.error(err);
+
+    client.query(
+      `INSERT INTO mds(title,"authorUrl",category,"publishedOn",synopsis) VALUES($1, $2, $3, $4, $5);`,
+      [request.body.title,
+        request.body.authorUrl,
+        request.body.category,
+        request.body.publishedOn,
+        request.body.body],
+      function(err) {
+        if (err) console.error(err);
+        client.end();
+      }
+    );
+  });
+  response.send('insert complete');
 });
 
 app.get('*', function(request,response){
@@ -17,8 +58,6 @@ app.get('*', function(request,response){
   response.status(404).sendFile('404.html',{root:'./public'});
 });
 
-
 app.listen(PORT, function() {
-  // DONE: Log to the console a message that lets you know which port your server has started on
-  console.log('server is up and running on port 5000 and can be accessd at th localhost:5000 in your browser');
+  console.log('server is up and running on port 7000 and can be accessd at th localhost:7000 in your browser');
 });

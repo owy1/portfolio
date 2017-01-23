@@ -1,12 +1,11 @@
-// 'use strict';
+'use strict';
 (function(module){
 
-function Article (options) {
-  this.title = options.title;
-  this.articleUrl = options.articleUrl;
-  this.publishedOn = options.publishedOn;
-  this.synopsis = options.synopsis;
-}
+  function Article (options) {
+    Object.keys(options).forEach(function(e){
+      this[e] = options[e];
+    },this);
+  }
 
 Article.all = [];
 
@@ -17,28 +16,31 @@ Article.prototype.toHtml = function() {
   return template(this);
 }
 
-Article.loadAll = function(rArticles){
-  // rArticles.forEach(function(ele){
-  //   articles.push(new Article(ele));
-  // })
-  Article.all = rArticles.map(function(ele){
-    return new Article(ele);
-  });
-}
+  Article.loadAll = function(rows){
+    rows.forEach(function(ele){
+      Article.all.push(new Article(ele));
+    })
+  };
 
 //store project data in a json file and se ajax to retrieve it asynchronously
-Article.fetchAll = function() {
-  if (localStorage.rArticles) {
-    Article.loadAll(JSON.parse(localStorage.rArticles));
+Article.fetchAll = function(callback) {
+  $.get('/mds/all').then(function(result){
+    if(result.rows.length){
+      Article.loadAll(result.rows);
+      callback();
   } else {
-    console.log('else bob');
-    $.getJSON('projects.json',function(data) {
-      // localStorage.setItem('rArticles',JSON.stringify(data));
-      localStorage.rArticles = JSON.stringify(data);
-      Article.loadAll(JSON.parse(localStorage.rArticles));
-    })
-  }
-}
+    $.getJSON("data/projects.json")
+    .then(result.forEach(function(e){
+          this[e] = result[e]
+      }, this))
+      .Article.prototype.insertRecord(result)
+      .then(Article.fetchAll(callback))
+      .catch(function(err){
+        console.error(err);
+      })
+    }
+  })
+};
 
 Article.numWordsAll = () => {
   return Article.all.map(ele => ele.synopsis.split('').length)
@@ -47,10 +49,13 @@ Article.numWordsAll = () => {
   });
 };
 
-
-// console.log(`the total number of words that ophelia has written so far: ${Article.numWordsAll()}`);
-
-
+Article.prototype.insertRecord = function(callback) {
+  $.post('/mds/insert', {author: this.author, authorUrl: this.authorUrl, body: this.body, category: this.category, publishedOn: this.publishedOn, title: this.title})
+  .then(function(data) {
+    console.log(data);
+    if (callback) callback();
+  })
+};
 
 module.Article = Article;
 

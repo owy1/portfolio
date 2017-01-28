@@ -22,7 +22,7 @@ Article.prototype.toHtml = function() {
     })
   };
 
-//store project data in a json file and se ajax to retrieve it asynchronously
+//store project data in a json file and ajax to retrieve it asynchronously
 Article.fetchAll = function(callback) {
   $.get('/mds/all').then(function(result){
     if(result.rows.length){

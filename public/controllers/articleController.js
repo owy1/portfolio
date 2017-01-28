@@ -3,9 +3,8 @@
 (function(module) {
   const articleController = {};
   articleController.init = function(){
-  Article.fetchAll(articleView.initIndexPage);
     $('.nav-content').hide();
-    $('#navigation').show();
+    $('#projects').show();
   };
 
   module.articleController = articleController;

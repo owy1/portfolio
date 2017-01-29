@@ -10,12 +10,26 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 		<script id="project-template" type="text/x-handlebars-template">
+
 			<header>
 				<h3>
 					<div class="urline"><address><a href="{{articleUrl}}">{{title}}</a></address></div></h3>
 					<section>{{publishedOn}}<section>
 			</header>
 			<section class="synopsis" style="margin-right: 30px;"">{{{synopsis}}}</section>
+
+		</script>
+		<script id="repo-template" type="text/x-handlebars-template">
+			<li>
+        <a href="{{url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
 		</script>
 	</head>
 	<body>
@@ -32,11 +46,13 @@
   </header>
   <main>
     <img src="images/deck.png" width = 100% height ="450"></img>
-			<!-- <h2>projects place-holders</h2> -->
-    <ul id="projects" class="nav-content" ontouchstart="this.classList.toggle('hover');">
-      <!-- <li><img src="/images/blue.png" width = "350" height ="375"></li>
-      <li><img src="/images/violet.png" width = "350" height ="375"></li>
-      <li><img src="/images/violetblue.png" width = "350" height ="375"></li> -->
+
+    <ul id="projects" class="nav-content" ontouchstart="this.classList.toggle('hover');>
+<!--
+			 <li><img src="/images/blue.png" width = "350" height ="375"></li>
+      <!-- <li><img src="/images/violet.png" width = "350" height ="375"></li> -->
+      <!-- <li><img src="/images/violetblue.png" width = "350" height ="375"></li> --> 
+
     </ul>
 		<section id="about" class="nav-content">
 	    <header>
@@ -45,17 +61,21 @@
 	      <h3>Skills:</h3>
 				<p>Full stack developer, Data Analysis, R, JavaScript, Python, SQL, MatLab</p>
 				<h3>Projects:</h3>
-	        <ul>
-	          <li>Honda Aircraft Company, LLC: HA-420 Hondajet</li>
-	          <li>Raytheon Space and Airborne Systems: E-2D, F-15E, VIIRS</li>
-	          <li>Northrop Grumman Corporation Integrated Systems: B-2, F-18E/F, F-35, IRAD, CRAD</li>
-	        </ul>
+
+	          <p>Honda Aircraft Company, LLC: HA-420 Hondajet</p>
+	          <p>Raytheon Space and Airborne Systems: E-2D, F-15E, VIIRS</p>
+	          <p>Northrop Grumman Corporation Integrated Systems: B-2, F-18E/F, F-35, IRAD, CRAD</p>
+
 					<h3>Education:</h3>
-		        <ul>
-		          <li>BSChE, University of Washington, WA</li>
-		          <li>MSEE, Columbia University, NY</li>
-							<li>Software Development, Code Fellows, WA</li>
-						</ul>
+
+		          <p>BSChE, University of Washington, WA</p>
+		          <p>MSEE, Columbia University, NY</p>
+							<p>Software Development, Code Fellows, WA</p>
+
+					<h3>GitHub:</h3>
+					<ul>
+						<li></li>
+					</ul>
 	  </section>
 			<section id="contact" class="nav-content">
 			</section>
@@ -68,8 +88,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/page.js/1.7.1/page.min.js"></script>
-	<script src="/article.js"></script>
-	<script src="/projectView.js"></script>
+	<script src="/models/article.js"></script>
+	<script src="/models/githubToken.js"></script>
+	<script src="/models/repos.js"></script>
+	<script src="/views/projectView.js"></script>
+	<script src="/views/repoView.js"></script>
 	<script src="/controllers/articleController.js"></script>
   <script src="/controllers/aboutController.js"></script>
 	<script src="/controllers/contactController.js"></script>

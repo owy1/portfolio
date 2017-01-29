@@ -4,7 +4,7 @@ const pg = require('pg');
 const express = require('express');
 
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 8000;
 const app = express();
 const conString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 
@@ -59,5 +59,5 @@ app.get('*', function(request,response){
 });
 
 app.listen(PORT, function() {
-  console.log('server is up and running on port 7000 and can be accessd at th localhost:7000 in your browser');
+  console.log(`Server started on port ${PORT}!`);
 });

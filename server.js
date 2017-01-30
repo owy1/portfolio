@@ -2,7 +2,7 @@
 
 const pg = require('pg');
 const express = require('express');
-
+const requestProxy = require('express-request-proxy');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -13,9 +13,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 app.get('/', function(request, response) {
-  // DONE: Using the response object, send the index.html file back to the user
   response.sendFile('index.html',{root: './public'});
 });
+
+app.get('/github/*', proxyGitHub);
+
+function proxyGitHub(request, response) {
+  console.log('Routing GitHub request for', request.params[0]); // request.params[0]=user/repos
+  (requestProxy({
+    url: `https://api.github.com/${request.params[0]}`,
+    headers: {Authorization: `token ${process.env.GITHUB_TOKEN}`}
+  }))(request, response);
+}
 
 app.get('/mds/all', function(request,response){
   // console.log('bob');

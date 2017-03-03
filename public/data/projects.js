@@ -1,5 +1,19 @@
 var rArticles = [
   {
+    title: 'Qualitative Activity Assessment',
+    category: 'health',
+    articleUrl: 'https://owy1.github.io/Qualitative_Activity_Assessment/',
+    publishedOn: 'Jan 24, 2017',
+    synopsis: 'This is a Coursera Machine Learning course project write-up to evaluate weight lifting exercise. The premise of the study and dataset can be found in Human Activity Recognition (HAR), http://groupware.les.inf.puc-rio.br/har. The data being studied here is a subset from HAR and are downloaded from: https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv The training data are compiled from sensors set up in belt, glove, arm-band and dumbbell worn by research subjects. Responses were recorded during ten repetitions of the Unilateral Dumbbell Bisceps Curl with a barbell in five different classifications: Classes A, B, C, D and E. Class A being the correct execution and the other classes simulate common mistakes by novices. The course instruction is to use readings from the accelerometers only for prediction model, which reduces the parameters from 160 to 20 plus “classe” as output. In this report I’ll describe how I build my model with a training set with cross-validation, perfrom prediction on a testing set (both sets are split from pml-training.csv), and show overall prediction accuracy. I’ll combine predictions from three models: Random Forest, generalized Boosted Regression and Support Vector Machine using Random Forest to predict the 20 test cases from: https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv',
+  },
+  {
+    title: 'death-by-designs',
+    category: 'Health',
+    articleUrl: 'https://death-by-designs.herokuapp.com/',
+    publishedOn: 'Jan 14, 2017',
+    synopsis: 'Morbidity and Mortality Weekly Report found that nonmetropolitan areas have significant numbers of Potentially Excess Deaths from the five leading causes of death (heart disease, cancer, unintentional injury, chronic lower respiratory disease, stroke). This storyboard leverage data from that report by presenting  information on Deaths from the five leading causes of death at the state level (combining deaths from nonmetropolitan and metropolitan areas) in an interactive map chart. Upon clicking a state, the statistics is displayed in a line chart in the upper right corner. We downloaded data from following URL:                          https://blogs.cdc.gov/nchs-data-visualization/state-data-accompanying-mmwr-surveillance-summary-66no-ss-11-8-potentially-excess-deaths-from-the-five-leading-causes-of-death-in-nonmetropolitan-and-metropolitan-areas-united-states-2005-2015/',
+  },
+  {
     title: 'Outdoor Air Quality',
     category: 'Environment',
     articleUrl: 'http://rpubs.com/owyowy1/240493',

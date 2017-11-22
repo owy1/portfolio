@@ -25,7 +25,7 @@
   "dependencies": {
     "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
-    "express": "^4.14.0",
+    "express": "^4.16.2",
     "express-request-proxy": "^2.0.0",
     "pg": "^6.1.2"
   }

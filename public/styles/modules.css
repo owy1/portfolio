@@ -13,7 +13,7 @@
 
 .navigation {
   vertical-align:text-bottom;
-  margin-left:20px;
+  margin-left:10px;
 }
 
 a {
@@ -58,11 +58,11 @@ h2 {
   float: right;
   width: 15%;
   height: 15%;
-  font-size: 50px;
+  font-size: 10px;
 }
 
 .main-nav ul {
-  /*clear: both;*/
+  clear: both;
   padding-left: 0px;
   display: none;
   list-style: none;
@@ -80,10 +80,12 @@ h2 {
   padding-top: 80px;
 }
 
-@media screen and (min-width: 640px){
+@media only screen and (min-width: 640px){
   .main-nav ul {
-    display:inline-flex;
+    display:inline-block;
     clear: both;
+    padding: .1em .1em .1em 2em;
+    float: none;
   }
   .icon-menu::before{
     display:none
